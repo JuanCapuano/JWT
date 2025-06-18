@@ -14,6 +14,7 @@ import { RegisterDTO } from '../interfaces/register.dto';
 import { Request } from 'express';
 import { AuthGuard } from '../middlewares/auth.middleware';
 import { RequestWithUser } from 'src/interfaces/request-user';
+import { Permissions } from 'src/middlewares/decorators/permissions.decorator';
 
 
 @Controller('')
@@ -49,18 +50,9 @@ canDo(
 ) {
   const allowed = this.service.canDo(request.user, permission);
 
-  const user = {
-    id: request.user.id,
-    email: request.user.email,
-    role: {
-      name: request.user.role.name,   
-      permissions: request.user.role.permissions.map(p => p.code), 
-    },
-  };
-
   return { 
     allowed,
-    user,
+    permission: permission,
   };
 }
 
@@ -72,6 +64,7 @@ canDo(
   }
 
   @Patch('users/:id/role')
+  @Permissions(['users_assign_role'])
   @UseGuards(AuthGuard)
   assignRole(
     @Param('id') userId: number,

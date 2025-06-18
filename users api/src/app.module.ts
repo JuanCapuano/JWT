@@ -9,6 +9,10 @@ import { UsersService } from './users/users.service';
 import { RolesModule } from './roles/roles.module';
 import { PermissionsModule } from './permissions/permissions.module';
 import { UsersModule } from './users/users.module';
+import { RolesService } from './roles/roles.service';
+import { PermissionsService } from './permissions/permissions.service';
+import { RolesController } from './roles/roles.controller';
+import { PermissionsController } from './permissions/permissions.controller';
 
 @Module({
   imports: [
@@ -27,7 +31,7 @@ import { UsersModule } from './users/users.module';
     PermissionsModule,
     UsersModule,
   ],
-  controllers: [AppController, UsersController],
-  providers: [AuthGuard, JwtService, UsersService],
+  controllers: [AppController, UsersController,],
+  providers: [AuthGuard, JwtService,],
 })
 export class AppModule {}

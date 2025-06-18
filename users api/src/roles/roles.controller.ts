@@ -19,21 +19,31 @@ export class RolesController {
   }
 
   @Get()
+  @UseGuards(AuthGuard)
+  @Permissions(['roles_read'])
   findAll() {
     return this.rolesService.findAll();
   }
 
   @Get(':id')
+  @UseGuards(AuthGuard)
+  @Permissions(['roles_read'])
   findOne(@Param('id') id: string) {
     return this.rolesService.findOne(+id);
   }
 
   @Patch(':id')
+  @UseGuards(AuthGuard)
+  @Permissions(['roles_update'])
   update(@Param('id') id: string, @Body() updateRoleDto: UpdateRoleDto) {
     return this.rolesService.update(+id, updateRoleDto);
   }
 
+
+  
   @Delete(':id')
+  @UseGuards(AuthGuard)
+  @Permissions(['roles_delete'])
   remove(@Param('id') id: string) {
     return this.rolesService.remove(+id);
   }

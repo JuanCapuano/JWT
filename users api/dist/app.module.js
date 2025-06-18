@@ -14,7 +14,6 @@ const entities_1 = require("./entities");
 const auth_middleware_1 = require("./middlewares/auth.middleware");
 const jwt_service_1 = require("./jwt/jwt.service");
 const users_controller_1 = require("./users/users.controller");
-const users_service_1 = require("./users/users.service");
 const roles_module_1 = require("./roles/roles.module");
 const permissions_module_1 = require("./permissions/permissions.module");
 const users_module_1 = require("./users/users.module");
@@ -39,8 +38,8 @@ exports.AppModule = AppModule = __decorate([
             permissions_module_1.PermissionsModule,
             users_module_1.UsersModule,
         ],
-        controllers: [app_controller_1.AppController, users_controller_1.UsersController],
-        providers: [auth_middleware_1.AuthGuard, jwt_service_1.JwtService, users_service_1.UsersService],
+        controllers: [app_controller_1.AppController, users_controller_1.UsersController,],
+        providers: [auth_middleware_1.AuthGuard, jwt_service_1.JwtService,],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map

@@ -4,6 +4,7 @@ import { Role } from '../entities/role.entity';
 import { RolesService } from './roles.service';
 import { RolesController } from './roles.controller';
 import { UsersModule } from 'src/users/users.module';
+import { JwtService } from 'src/jwt/jwt.service';
 
 @Module({
   imports: [

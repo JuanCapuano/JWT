@@ -20,14 +20,7 @@ export declare class UsersController {
     }>;
     canDo(request: RequestWithUser, permission: string): {
         allowed: boolean;
-        user: {
-            id: number;
-            email: string;
-            role: {
-                name: string;
-                permissions: string[];
-            };
-        };
+        permission: string;
     };
     refreshToken(request: Request): Promise<{
         accessToken: string;
